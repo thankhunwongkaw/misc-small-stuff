@@ -1,0 +1,51 @@
+make a training data from apis consisting of airplane weight , airline , time , distance , whether at the airport
+use the training to train an ai
+
+make another set but we take out the weight and airline for unidentify airline or plane
+use it to train the ai
+
+when the user use the website there2 mode 1 for all of the flight we can find and when the user chose a flight we make a request and use the ai for it so we wont have to use the ai too much
+the other mode is for when the user input the distance , the airport and the time , we can add options to add airline and plane model if they have it , and then we request the ai for the prediction
+
+i added flight distance but we can just remove it since we will probably be using a flight path model when we developed this version
+
+mode1:
+    the one that show all of the avaliable flight we can find
+
+mode2:
+    manual input
+
+apis
+    future flight: FlightLabs
+    old flight : AviationStack 
+    weather : OpenWeatherMap One Call 3.0
+    airplane model : OpenFlights CSV
+    flight path : Geod from pyproj 
+
+ripple effect:
+    when one flight cancelled this might caused more flight to be cancelled in the same airport
+    fix : 
+        when selecting a flight , we find the 2 flight before that selected flight , check if theyre at risk , if yes , add a warning
+
+    
+data:
+    for model 1 : flight duration , airplane model , airplane weight , airline , time , airport , weather at the airport , day
+    model 2 :  flight duration , time , airport , weather at the airport , day
+todo :
+
+apis:
+    -training data (1,2)
+    -flight pull for the mode 1 interface
+
+ai:
+    -learn the model
+    -make the model(1,2)
+    -model -MLP (pytorch)
+
+frontend:
+    -not doing it
+
+database : not rlly need? since ai will be on the backend server
+
+stat: failed
+reason : the reason flight get cancelled varies, i think an incident happened in like 2018 that made like 10000 flight got cancelled and when you add in that we are scanning for cancelled flight only it kind of make the data very very unstable, plus the cancelled flight most of the time come from another flight messing up something
